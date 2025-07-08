@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oki Hendrawan">
+    <meta name="description" content="Learn basic JavaScript syntax">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="my-name"></p>
+
+    <div class="total-cost">
+        <p id="total-cost-para"></p>
+        <p id="total-cost"></p>
+    </div>
+
+    <div class="bank-account">
+        <p id="bank-account-para"></p>
+        <p id="bank-account"></p>
+    </div>
+
+    <!-- JavaScript -->
+     <script>
+        alert('Good morning!');
+        alert('Oki Hendrawan');
+
+        console.log(10 + 5);
+        console.log(20 - 5);
+        console.log(2 + 2 - 5);
+
+        const myName = document.getElementById('my-name');
+        myName.textContent = "Good morning, Oki Hendrawan";
+
+        const totalCostPara = document.getElementById('total-cost-para');
+        const totalCost = document.getElementById('total-cost');
+
+        let tShirt = 10;
+        let shocks = 8;
+        let dinnerPlates = 20;
+
+        totalCostPara.textContent = `You buy a T-shirt for $${tShirt}, socks for $${shocks}, and a dinner plates $${dinnerPlates}`;
+
+        totalCost.textContent = "Total cost: $" + (tShirt + shocks + dinnerPlates);
+
+        const bankAccountPara = document.getElementById('bank-account-para');
+        const bankAccount = document.getElementById('bank-account');
+
+
+        let myBankAccount = 100;
+        let lunch = 20;
+        let dinner = 50;
+        let salary = 200;
+
+        
+        bankAccountPara.textContent = "Your bank account has $" + myBankAccount + ", You spend $" + lunch + " on lunch, $" + dinner + " on dinner, and earn $" + salary + " from your job.";
+        
+        myBankAccount = (myBankAccount - lunch - dinner) + salary;
+        bankAccount.textContent = "your bank account has $" + myBankAccount;
+
+     </script>
+</body>
+
+</html>

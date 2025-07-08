@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oki Hendrawan">
+    <meta name="description">
+    <title>JavaScript number and math</title>
+</head>
+
+<body>
+
+    <p class="ex-2a">At a restaurant, you order 1 soup for $10, 3 burgers for $8 each, and 1 ice cream for $4. Total cost: </p>
+
+    <p class="ex-2b">You're at a restaurant with 2 friends (3 people in total) and make the same order as 2a. Total cost: <span class="ex-2b-span"></span></p>
+
+    <p class="ex-2c">calculate the total cost of a toaster ($18.50) and 2 shirts ($7.50 each)</p>
+
+    <p class="ex-2d">Calculate a 10% tax for the total in exercise 2c.</p>
+
+    <p class="ex-2e">Calculate a 20% tax for the total in 2c (remember that 1% = 1/100, so 20% = 20 / 100 = 0.2)</p>
+
+    <section class="challenge-math">
+        <p>in the Amazon project, go to the home page and add a toaster ($18,99) to your cart so you have 1 basketball, 1 t-shirt, and 1 toaster. Choos $4.99 shipping for the toaster.</p>
+        <p class="ex-2f">Calculate the sot of the products (before shipping and taxes). Hint: calculate in cents to avoid inaccuracies.</p>
+        <p class="ex-2g">Calculate the total before tax.</p>
+        <p class="ex-2h">Calculate the 10% tax exactly. Hint use Math.round()</p>
+    </section>
+
+    <section id="challengeDegree">
+        <p>We'll use JavaScript to convert temperatures from celcius (&deg;C) to Fahrenheit (&deg;F). The formula is:</p>
+
+        <ul>
+            <li>Fahrenheit = (celcius * 9 / 5) + 32</li>
+            <li>Celsius = (Fahrenheit - 32) * 5 / 9</li>
+        </ul>
+
+        <p class="ex-2l">The temperature is 25&deg;C. Calculate the temperature in Fahrenheit. (77)</p>
+
+        <p class="ex-2m">The temperature is 86&deg;F. Calculate the temperature in Celsius. (30&deg;C)</p>
+
+        <p class="ex-2n">The temperature is -5&deg;C. Calculate the temperature in Fahrenheit. (23&deg;F)</p>
+    </section>
+
+    <!-- JavaScript -->
+     <script>
+
+        // Initialized shipping costs
+        let fastShipping = 4.99;
+        let superFastShipping = 9.99;
+
+        // Exercise of 2a section
+        const ex2aPara = document.querySelector('.ex-2a');
+        let totalCost = 10 + 8 * 3 + 4; // First initialized totalCost variable
+        ex2aPara.textContent = "At a restaurant, you order 1 soup for $10, 3 burgers for $8, and 1 ice cream for $4. Total cost: $" + totalCost;
+        
+        // Exercise of 2b section
+        const ex2bSpan = document.querySelector('.ex-2b-span');
+        totalCost = totalCost * 3;
+        ex2bSpan.textContent = "Total Cost: $" + totalCost + ", per person pay: $" + (totalCost / 3);
+        
+        // Exercise of 2c section
+        const ex2cPara = document.querySelector('.ex-2c');
+        totalCost = 18.50 + 7.50 * 2;
+        ex2cPara.textContent = "You buy 1 toaster for $18.50 and 2 t-shirts for $7.50 each. Total cost: $" + totalCost;
+
+        // exercise of 2d section
+        const ex2dPara = document.querySelector('.ex-2d');
+        ex2dPara.textContent = "You get 10% tax: $" + (totalCost * 0.1) + ", Total cost: $" + (totalCost + (totalCost * 0.1));
+
+        const ex2ePara = document.querySelector('.ex-2e');
+        ex2ePara.textContent = "You get 20% tax: $" + (totalCost * 0.2) + ", Total cost: $" + (totalCost + (totalCost * 0.2));
+
+        const ex2fPara = document.querySelector('.ex-2f');
+        totalCost = (2095 + 799 + 1899) / 100;
+        ex2fPara.textContent = "You have 1 basketball for $" + 20.95 + ", 1 t-shirt for $" + 7.99 + ", and 1 toaster for $" + 18.99 + ". Total cost: $" + totalCost;
+
+        const ex2gPara = document.querySelector('.ex-2g');
+        ex2gPara.textContent = "You spend $" + fastShipping + " shipping on the toaster. Total cost: $" + (totalCost + fastShipping);
+
+        totalCost = 5292;
+        const ex2hPara = document.querySelector('.ex-2h');
+        ex2hPara.textContent = "You get 10% tax for $" + totalCost + ". Total cost: $" + (Math.round(totalCost * 0.1) / 100) + ". Total cost: $" + ((totalCost / 100) + Math.round(totalCost * 0.1) / 100);
+
+        // Exercise 2j
+        console.log("Complete the exercise 2j (2.8 => 2) with Math.floor: " + (Math.floor(2.8)));
+
+        // Exercise 2k
+        console.log("Complite the exercise 2k (2.2 => 3) with Math.ceil: " + (Math.ceil(2.2)));
+
+
+        // Challenge degree convert
+        const degreeSymbol = "\u00b0";
+        let fahrenheit;
+        let celsius;
+
+        let calculateFahrenheit = (celsius * 9 / 5) + 32;
+        let calculateCelsius = (fahrenheit - 32) * 5 / 9;
+
+        // Excercise 2l
+        const ex2lPara = document.querySelector('.ex-2l');
+        celsius = 25;
+        calculateFahrenheit = (celsius * 9 / 5) + 32;
+        ex2lPara.textContent = "Convert 25" + degreeSymbol + "C to Fahrenheit: " + calculateFahrenheit + degreeSymbol + "F";
+
+        // Exercise 2m
+        const ex2mPara = document.querySelector('.ex-2m');
+        fahrenheit = 86;
+        calculateCelsius = (fahrenheit - 32) * 5 / 9;
+        ex2mPara.textContent = "Convert 86" + degreeSymbol + "F to Celsius: " + calculateCelsius + degreeSymbol + "C";
+
+        // Exercise 2n
+        const ex2nPara = document.querySelector('.ex-2n');
+        celsius = -5;
+        calculateFahrenheit = (celsius * 9 / 5) + 32;
+        ex2nPara.textContent = "Convert -5" + degreeSymbol + "C to Fahrenheit: " + calculateFahrenheit + degreeSymbol + "F";
+     </script>
+</body>
+
+</html>
