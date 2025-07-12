@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oki Hendrawan">
+    <meta name="description" content="">
+    <title>JS string</title>
+</head>
+
+<body>
+
+    <!-- use p element to display in the browser page -->
+    <p class="exercise-g">You order 1 coffe ($5.99) and 1 bagel ($2.95). Using math, calculate the total cost, and using
+        concatentation, creat the text: 'Total cost: $__' (hint: calculate in cents to avoid inaccuracies)</p>
+
+    <p class="exercise-h">Do the same thing as 3g, but use a template string and interpolation.</p>
+
+    <p>In the Amazon project, update the cart to 2 basketballs ($20.95 each) with $9.99 shipping, and 2 t-shirts ($7.99 each) with $4.99 shipping.</p>
+
+    <p class="exercise-k">Using interpolation, creat the first line of text (use math to calculate the numbers 4 and 57.88).</p>
+
+    <p class="exercise-l">Creat second line of text: "Shipping & handling: $.98' (use math).</p>
+
+    <p class="exercise-m">Creat third line: 'total before tax: $67.86' (use math)</p>
+
+    <p class="exercise-n">Creat fourth line of text: 'Estimated tax (10%): $6.79' (use math and Math.round(); to calculate the exact number).</p>
+
+    <button id="buy-btn">Buy</button>
+
+
+    <!-- JavaScript -->
+    <script>
+        const myName = 'Oki Hendrawan';
+        let paragraph;
+        let concatenation;
+        let interpolation;
+
+        // Variable to put HTML element
+        const exerciseG = document.querySelector('.exercise-g');
+        const exerciseH = document.querySelector('.exercise-h');
+        const exerciseK = document.querySelector('.exercise-k');
+        const exerciseL = document.querySelector('.exercise-l');
+        const exerciseM = document.querySelector('.exercise-m');
+        const exerciseN = document.querySelector('.exercise-n');
+        const buyBtn = document.getElementById('buy-btn');
+
+        // String basics
+        // display my name in browser console
+        paragraph = 'My name is: ' + myName;
+        console.log(paragraph);
+
+        // Using concatenation for add string with number
+        concatenation = 'Total cost: $' + (5 + 3);
+        console.log(concatenation);
+
+        // same as concatenation, but we use interpolitan
+        interpolation = `Total cost: $${5 + 3}`;
+        console.log(interpolation);
+
+        // Exercise 3g
+        exerciseG.textContent = 'Total cost: $' + (599 + 295) / 100 + ' Thank you, come again!';
+
+        // Exercise 3h
+        exerciseH.textContent = `Total cost: $${(599 + 295) / 100}`;
+
+        // Exercise 3k
+        let paragraphK = `Items (${2 + 2}): $${(2095 * 2 + 799 * 2) / 100}`;
+        exerciseK.textContent = paragraphK;
+
+        // Exercise 3l
+        let paragraphL = `Shipping & handling: $${(999 + 499) / 100}`;
+        exerciseL.textContent = paragraphL;
+
+        // Exercise 3m
+        let paragraphM = `Total before tax: $${((2095 * 2 + 799 * 2) / 100) + ((999 + 499) / 100)}`;
+        exerciseM.textContent = paragraphM;
+
+        // Exercise 3n
+        let paragraphN = `Estimated tax (10%): ${Math.round(7286 * 0.1) / 100}`;
+        exerciseN.textContent = paragraphN;
+
+        buyBtn.addEventListener('click', () => {
+            console.log("Function is running..");
+
+            alert(`${paragraphK} \n${paragraphL} \n${paragraphM} \n${paragraphN}`);
+        });
+    </script>
+</body>
+
+</html>

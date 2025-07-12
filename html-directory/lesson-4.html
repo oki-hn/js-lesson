@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oki Hendrawan">
+    <meta name="description" content="">
+    <title>JavaScript variable</title>
+</head>
+
+<body>
+
+    <p class="ex-c">At a restaurant, you order 1 coffe ($5), 2 bagels ($3 each), and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'.</p>
+
+    <button type="button" id="addToCart">Add to Cart</button>
+    <button type="button" id="addFour">+4</button>
+    <button type="button" id="addFive">+5</button>
+    <button type="button" id="resetCartQuantity">Reset cart quantity</button>
+
+    <!-- Decrease button -->
+    <button type="button" id="subtractTwo">-2</button>
+    <button type="button" id="subtractThree">-3</button>
+
+
+    <!-- JavaScript code -->
+     <script>
+        const myName = "Oki Hendrawan";
+        console.log(`My name is ${myName}`);
+
+        let cost;
+        
+        cost = 5 + 3 * 2 + 9;
+        console.log(" of food: $" + cost);
+
+        const tax = cost * 0.1;
+        console.log("You have 10% tax: $" + tax);
+
+        console.log("Total cost: $" + (cost + tax));
+
+        // Creat a features of Cart
+        const addToCart = document.querySelector('#addToCart');
+        const addFour = document.querySelector('#addFour');
+        const addFive = document.querySelector('#addFive');
+        const resetCartQuantity = document.getElementById('resetCartQuantity');
+
+        let cartQuantity = 0;
+        addToCart.addEventListener('click', () => {
+            cartQuantity++;
+            console.log("Cart quantity: " + cartQuantity);
+        });
+
+        addFour.addEventListener('click', () => {
+            cartQuantity += 4;
+            console.log("Cart quantity: " + cartQuantity);
+        });
+
+        addFive.addEventListener('click', () => {
+            cartQuantity += 5;
+            console.log("Cart quantity: " + cartQuantity);
+        });
+
+        resetCartQuantity.addEventListener('click', () => {
+            cartQuantity = 0;
+            console.log("Cart has been reset.");
+            console.log("Cart quantity: " + cartQuantity);
+        });
+
+        // Decrease button
+        const subtractTwo = document.getElementById('subtractTwo');
+        const subtractThree = document.getElementById('subtractThree');
+
+        subtractTwo.addEventListener('click', () => {
+            cartQuantity -= 2;
+            console.log("Cart quantity: " + cartQuantity);
+        });
+        
+        subtractThree.addEventListener('click', () => {
+            cartQuantity -= 3;
+            console.log("Cart quantity: " + cartQuantity);
+        });
+
+     </script>
+</body>
+
+</html>
